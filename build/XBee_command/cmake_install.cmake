@@ -1,8 +1,8 @@
-# Install script for directory: /home/parallels/SAMP_XBEE_WS/src/XBee_command
+# Install script for directory: /home/yunfei/Projects/SAMP_XBEE_WS/src/XBee_command
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
-  set(CMAKE_INSTALL_PREFIX "/home/parallels/SAMP_XBEE_WS/install")
+  set(CMAKE_INSTALL_PREFIX "/home/yunfei/Projects/SAMP_XBEE_WS/install")
 endif()
 string(REGEX REPLACE "/$" "" CMAKE_INSTALL_PREFIX "${CMAKE_INSTALL_PREFIX}")
 
@@ -33,17 +33,17 @@ if(NOT DEFINED CMAKE_INSTALL_SO_NO_EXE)
 endif()
 
 if(NOT CMAKE_INSTALL_COMPONENT OR "${CMAKE_INSTALL_COMPONENT}" STREQUAL "Unspecified")
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/pkgconfig" TYPE FILE FILES "/home/parallels/SAMP_XBEE_WS/build/XBee_command/catkin_generated/installspace/XBee_command.pc")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/pkgconfig" TYPE FILE FILES "/home/yunfei/Projects/SAMP_XBEE_WS/build/XBee_command/catkin_generated/installspace/XBee_command.pc")
 endif()
 
 if(NOT CMAKE_INSTALL_COMPONENT OR "${CMAKE_INSTALL_COMPONENT}" STREQUAL "Unspecified")
   file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/XBee_command/cmake" TYPE FILE FILES
-    "/home/parallels/SAMP_XBEE_WS/build/XBee_command/catkin_generated/installspace/XBee_commandConfig.cmake"
-    "/home/parallels/SAMP_XBEE_WS/build/XBee_command/catkin_generated/installspace/XBee_commandConfig-version.cmake"
+    "/home/yunfei/Projects/SAMP_XBEE_WS/build/XBee_command/catkin_generated/installspace/XBee_commandConfig.cmake"
+    "/home/yunfei/Projects/SAMP_XBEE_WS/build/XBee_command/catkin_generated/installspace/XBee_commandConfig-version.cmake"
     )
 endif()
 
 if(NOT CMAKE_INSTALL_COMPONENT OR "${CMAKE_INSTALL_COMPONENT}" STREQUAL "Unspecified")
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/XBee_command" TYPE FILE FILES "/home/parallels/SAMP_XBEE_WS/src/XBee_command/package.xml")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/XBee_command" TYPE FILE FILES "/home/yunfei/Projects/SAMP_XBEE_WS/src/XBee_command/package.xml")
 endif()
 

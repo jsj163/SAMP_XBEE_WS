@@ -7,8 +7,6 @@
 # new environment variables
 
 # modified environment variables
-export CMAKE_PREFIX_PATH="/home/parallels/SAMP_XBEE_WS/devel:$CMAKE_PREFIX_PATH"
-export LD_LIBRARY_PATH="/home/parallels/SAMP_XBEE_WS/devel/lib:$LD_LIBRARY_PATH"
-export PWD="/home/parallels/SAMP_XBEE_WS/build"
-export ROSLISP_PACKAGE_DIRECTORIES="/home/parallels/SAMP_XBEE_WS/devel/share/common-lisp:$ROSLISP_PACKAGE_DIRECTORIES"
-export ROS_PACKAGE_PATH="/home/parallels/SAMP_XBEE_WS/src:$ROS_PACKAGE_PATH"
+export PKG_CONFIG_PATH="/opt/ros/kinetic/lib/pkgconfig:/opt/ros/kinetic/lib/x86_64-linux-gnu/pkgconfig"
+export PWD="/home/yunfei/Projects/SAMP_XBEE_WS/build"
+export ROS_PACKAGE_PATH="/home/yunfei/Projects/SAMP_XBEE_WS/src:/opt/ros/kinetic/share"

@@ -3,20 +3,88 @@
 #include <std_msgs/String.h> 
 #include <std_msgs/Empty.h> 
 #include "asctec.h"
+
+int waypointNumber = 0;
 serial::Serial ser; //声明串口对象 
+enum Commands{
+      get_imu_data,
+      get_gps_data,
+      waypoint,
+      waypoint_start,
+      waypoint_auto,
+      motor_test,
+      command_invalid
+};
+
+Commands resolveCommands(std::string input){
+      if( input == "get_imu_data" ) return get_imu_data;
+      if( input == "get_gps_data" ) return get_gps_data;
+      if( input == "waypoint" ) return waypoint;
+      if( input == "waypoint_start" ) return waypoint_start;
+      if( input == "waypoint_auto" ) return waypoint_auto;
+      if( input == "motor_test" ) return motor_test;
+      return command_invalid;
+}
 //回调函数 
-void write_callback(const std_msgs::String::ConstPtr& msg) 
-{ 
-      std::stringstream write_buf(msg->data);
-      std::string 
-      // write_buf.erase(0,1);   //reduce '\'
-      uint16_t packets;
-      write_buf >> packets;
-      POLL_REQUEST req = { { '>', '*', '>', 'p' }, packets };
-      // ROS_INFO_STREAM("Writing to serial port" <<msg->data); 
-      ROS_INFO_STREAM("Writing to serial port" <<write_buf); 
-      // ser.write(msg->data);   //发送串口数据 
-      ser.write((const uint8_t *)&req, sizeof(POLL_REQUEST));   //发送串口数据 
+void write_callback(const std_msgs::String::ConstPtr& msg) {
+      if (msg->data.length()>0){
+            std::stringstream write_buf(msg->data);
+            std::string tmp;
+            std::string command_list[50];
+            int i = 0;
+            while (std::getline(write_buf, tmp, ',')){
+                  command_list[i] = tmp;
+                  i++;
+            }
+            Commands check_command = resolveCommands(command_list[0]) ;
+
+            switch(check_command){
+                  case get_imu_data:{
+                        ROS_INFO("imu\n");
+                        break;
+                  }
+                  case get_gps_data:{
+                        ROS_INFO("gps\n");
+                        break;
+                        
+                  }
+                  case waypoint:{
+                        ROS_INFO("wp\n");
+                        break;
+                        
+                  }
+                  case waypoint_start:{
+                        ROS_INFO("wps\n");
+                        break;
+                              
+                  }
+                  case waypoint_auto:{
+                        ROS_INFO("wpa\n");
+                        break;
+                              
+                  }
+                  case motor_test:{
+                        ROS_INFO("motor_test\n");
+                        break;
+                              
+                  }
+                  case command_invalid:{
+                        ROS_INFO("command_invalid\n");
+                        break;
+                              
+                  }
+            }
+
+            // write_buf.erase(0,1);   //reduce '\'
+            uint16_t packets;
+            write_buf >> packets;
+            POLL_REQUEST req = { { '>', '*', '>', 'p' }, packets };
+            // ROS_INFO_STREAM("Writing to serial port" <<msg->data); 
+            ROS_INFO_STREAM("Writing to serial port" <<write_buf); 
+            // ser.write(msg->data);   //发送串口数据 
+            ser.write((const uint8_t *)&req, sizeof(POLL_REQUEST));   //发送串口数据   
+      }
+      
 } 
 int main (int argc, char** argv) 
 { 
@@ -25,7 +93,7 @@ int main (int argc, char** argv)
       //声明节点句柄 
       ros::NodeHandle nh; 
       //订阅主题，并配置回调函数 
-      ros::Subscriber write_sub = nh.subscribe("write", 1000, write_callback); 
+      ros::Subscriber write_sub = nh.subscribe("write", 1, write_callback); 
       //发布主题 
       ros::Publisher read_pub = nh.advertise<std_msgs::String>("read", 1000); 
       try 
