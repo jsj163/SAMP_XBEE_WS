@@ -7,6 +7,6 @@
 # new environment variables
 
 # modified environment variables
-export PKG_CONFIG_PATH="/opt/ros/kinetic/lib/pkgconfig:/opt/ros/kinetic/lib/x86_64-linux-gnu/pkgconfig"
-export PWD="/home/yunfei/Projects/SAMP_XBEE_WS/build"
-export ROS_PACKAGE_PATH="/home/yunfei/Projects/SAMP_XBEE_WS/src:/opt/ros/kinetic/share"
+export LD_LIBRARY_PATH="/home/parallels/IntelRealSense_ws/devel/lib:/home/parallels/catkin_ws/devel/lib:/opt/ros/kinetic/lib:/opt/ros/kinetic/lib/x86_64-linux-gnu"
+export PKG_CONFIG_PATH="/home/parallels/IntelRealSense_ws/devel/lib/pkgconfig:/home/parallels/catkin_ws/devel/lib/pkgconfig:/opt/ros/kinetic/lib/pkgconfig:/opt/ros/kinetic/lib/x86_64-linux-gnu/pkgconfig"
+export PWD="/home/parallels/SAMP_XBEE_WS/build"

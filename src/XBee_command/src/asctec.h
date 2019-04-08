@@ -304,6 +304,41 @@ typedef struct _WAYPOINT
 #define WPPROP_AUTOMATICGOTO 	0x10 //if set, vehicle will not wait for a goto command, but goto this waypoint directly
 #define WPPROP_CAM_TRIGGER 		0x20 //if set, photo camera is triggered when waypoint is reached and time to stay is 80% u
 
+
+#define PD_IMURAWDATA 0x01
+#define PD_LLSTATUS 0x02
+#define PD_IMUCALCDATA 0x03
+#define PD_HLSTATUS 0x04
+#define PD_DEBUGDATA 0x05
+#define PD_CTRLOUT 0x11
+#define PD_FLIGHTPARAMS 0x12
+#define PD_CTRLCOMMANDS 0x13
+#define PD_CTRLINTERNAL 0x14
+#define PD_RCDATA 0x15
+#define PD_CTRLSTATUS 0x16
+#define PD_CTRLINPUT 0x17
+#define PD_CTRLFALCON 0x18
+#define PD_WAYPOINT 0x20
+#define PD_CURRENTWAY 0x21
+#define PD_NMEADATA 0x22
+#define PD_GPSDATA 0x23
+#define PD_SINGLEWAYPOINT 0x24
+#define PD_GOTOCOMMAND 0x25
+#define PD_LAUNCHCOMMAND 0x26
+#define PD_LANDCOMMAND 0x27
+#define PD_HOMECOMMAND 0x28
+#define PD_GPSDATAADVANCED 0x29
+
+#define LL_Status 0x0001
+#define IMU_RawData  0x0002
+#define IMU_CalcData  0x0004
+#define RC_Data 0x0008
+#define CTRL_Out 0x0010
+#define GPS_Data 0x0080
+#define current_way 0x0100
+#define GPS_Data_Advanced 0x0200
+#define CAM_Data 0x0800
+
 /*
  --- Sending the waypoint structure to the vehicle ---
 

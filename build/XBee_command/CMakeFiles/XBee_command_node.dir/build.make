@@ -43,10 +43,10 @@ RM = /usr/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/yunfei/Projects/SAMP_XBEE_WS/src
+CMAKE_SOURCE_DIR = /home/parallels/SAMP_XBEE_WS/src
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/yunfei/Projects/SAMP_XBEE_WS/build
+CMAKE_BINARY_DIR = /home/parallels/SAMP_XBEE_WS/build
 
 # Include any dependencies generated for this target.
 include XBee_command/CMakeFiles/XBee_command_node.dir/depend.make
@@ -58,17 +58,17 @@ include XBee_command/CMakeFiles/XBee_command_node.dir/progress.make
 include XBee_command/CMakeFiles/XBee_command_node.dir/flags.make
 
 XBee_command/CMakeFiles/XBee_command_node.dir/src/XBee_command.cpp.o: XBee_command/CMakeFiles/XBee_command_node.dir/flags.make
-XBee_command/CMakeFiles/XBee_command_node.dir/src/XBee_command.cpp.o: /home/yunfei/Projects/SAMP_XBEE_WS/src/XBee_command/src/XBee_command.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/yunfei/Projects/SAMP_XBEE_WS/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object XBee_command/CMakeFiles/XBee_command_node.dir/src/XBee_command.cpp.o"
-	cd /home/yunfei/Projects/SAMP_XBEE_WS/build/XBee_command && /usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/XBee_command_node.dir/src/XBee_command.cpp.o -c /home/yunfei/Projects/SAMP_XBEE_WS/src/XBee_command/src/XBee_command.cpp
+XBee_command/CMakeFiles/XBee_command_node.dir/src/XBee_command.cpp.o: /home/parallels/SAMP_XBEE_WS/src/XBee_command/src/XBee_command.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/parallels/SAMP_XBEE_WS/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object XBee_command/CMakeFiles/XBee_command_node.dir/src/XBee_command.cpp.o"
+	cd /home/parallels/SAMP_XBEE_WS/build/XBee_command && /usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/XBee_command_node.dir/src/XBee_command.cpp.o -c /home/parallels/SAMP_XBEE_WS/src/XBee_command/src/XBee_command.cpp
 
 XBee_command/CMakeFiles/XBee_command_node.dir/src/XBee_command.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/XBee_command_node.dir/src/XBee_command.cpp.i"
-	cd /home/yunfei/Projects/SAMP_XBEE_WS/build/XBee_command && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/yunfei/Projects/SAMP_XBEE_WS/src/XBee_command/src/XBee_command.cpp > CMakeFiles/XBee_command_node.dir/src/XBee_command.cpp.i
+	cd /home/parallels/SAMP_XBEE_WS/build/XBee_command && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/parallels/SAMP_XBEE_WS/src/XBee_command/src/XBee_command.cpp > CMakeFiles/XBee_command_node.dir/src/XBee_command.cpp.i
 
 XBee_command/CMakeFiles/XBee_command_node.dir/src/XBee_command.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/XBee_command_node.dir/src/XBee_command.cpp.s"
-	cd /home/yunfei/Projects/SAMP_XBEE_WS/build/XBee_command && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/yunfei/Projects/SAMP_XBEE_WS/src/XBee_command/src/XBee_command.cpp -o CMakeFiles/XBee_command_node.dir/src/XBee_command.cpp.s
+	cd /home/parallels/SAMP_XBEE_WS/build/XBee_command && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/parallels/SAMP_XBEE_WS/src/XBee_command/src/XBee_command.cpp -o CMakeFiles/XBee_command_node.dir/src/XBee_command.cpp.s
 
 XBee_command/CMakeFiles/XBee_command_node.dir/src/XBee_command.cpp.o.requires:
 
@@ -88,34 +88,34 @@ XBee_command_node_OBJECTS = \
 # External object files for target XBee_command_node
 XBee_command_node_EXTERNAL_OBJECTS =
 
-/home/yunfei/Projects/SAMP_XBEE_WS/devel/lib/XBee_command/XBee_command_node: XBee_command/CMakeFiles/XBee_command_node.dir/src/XBee_command.cpp.o
-/home/yunfei/Projects/SAMP_XBEE_WS/devel/lib/XBee_command/XBee_command_node: XBee_command/CMakeFiles/XBee_command_node.dir/build.make
-/home/yunfei/Projects/SAMP_XBEE_WS/devel/lib/XBee_command/XBee_command_node: /opt/ros/kinetic/lib/libroscpp.so
-/home/yunfei/Projects/SAMP_XBEE_WS/devel/lib/XBee_command/XBee_command_node: /usr/lib/x86_64-linux-gnu/libboost_filesystem.so
-/home/yunfei/Projects/SAMP_XBEE_WS/devel/lib/XBee_command/XBee_command_node: /usr/lib/x86_64-linux-gnu/libboost_signals.so
-/home/yunfei/Projects/SAMP_XBEE_WS/devel/lib/XBee_command/XBee_command_node: /opt/ros/kinetic/lib/librosconsole.so
-/home/yunfei/Projects/SAMP_XBEE_WS/devel/lib/XBee_command/XBee_command_node: /opt/ros/kinetic/lib/librosconsole_log4cxx.so
-/home/yunfei/Projects/SAMP_XBEE_WS/devel/lib/XBee_command/XBee_command_node: /opt/ros/kinetic/lib/librosconsole_backend_interface.so
-/home/yunfei/Projects/SAMP_XBEE_WS/devel/lib/XBee_command/XBee_command_node: /usr/lib/x86_64-linux-gnu/liblog4cxx.so
-/home/yunfei/Projects/SAMP_XBEE_WS/devel/lib/XBee_command/XBee_command_node: /usr/lib/x86_64-linux-gnu/libboost_regex.so
-/home/yunfei/Projects/SAMP_XBEE_WS/devel/lib/XBee_command/XBee_command_node: /opt/ros/kinetic/lib/libxmlrpcpp.so
-/home/yunfei/Projects/SAMP_XBEE_WS/devel/lib/XBee_command/XBee_command_node: /opt/ros/kinetic/lib/libserial.so
-/home/yunfei/Projects/SAMP_XBEE_WS/devel/lib/XBee_command/XBee_command_node: /opt/ros/kinetic/lib/libroscpp_serialization.so
-/home/yunfei/Projects/SAMP_XBEE_WS/devel/lib/XBee_command/XBee_command_node: /opt/ros/kinetic/lib/librostime.so
-/home/yunfei/Projects/SAMP_XBEE_WS/devel/lib/XBee_command/XBee_command_node: /opt/ros/kinetic/lib/libcpp_common.so
-/home/yunfei/Projects/SAMP_XBEE_WS/devel/lib/XBee_command/XBee_command_node: /usr/lib/x86_64-linux-gnu/libboost_system.so
-/home/yunfei/Projects/SAMP_XBEE_WS/devel/lib/XBee_command/XBee_command_node: /usr/lib/x86_64-linux-gnu/libboost_thread.so
-/home/yunfei/Projects/SAMP_XBEE_WS/devel/lib/XBee_command/XBee_command_node: /usr/lib/x86_64-linux-gnu/libboost_chrono.so
-/home/yunfei/Projects/SAMP_XBEE_WS/devel/lib/XBee_command/XBee_command_node: /usr/lib/x86_64-linux-gnu/libboost_date_time.so
-/home/yunfei/Projects/SAMP_XBEE_WS/devel/lib/XBee_command/XBee_command_node: /usr/lib/x86_64-linux-gnu/libboost_atomic.so
-/home/yunfei/Projects/SAMP_XBEE_WS/devel/lib/XBee_command/XBee_command_node: /usr/lib/x86_64-linux-gnu/libpthread.so
-/home/yunfei/Projects/SAMP_XBEE_WS/devel/lib/XBee_command/XBee_command_node: /usr/lib/x86_64-linux-gnu/libconsole_bridge.so
-/home/yunfei/Projects/SAMP_XBEE_WS/devel/lib/XBee_command/XBee_command_node: XBee_command/CMakeFiles/XBee_command_node.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/yunfei/Projects/SAMP_XBEE_WS/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Linking CXX executable /home/yunfei/Projects/SAMP_XBEE_WS/devel/lib/XBee_command/XBee_command_node"
-	cd /home/yunfei/Projects/SAMP_XBEE_WS/build/XBee_command && $(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/XBee_command_node.dir/link.txt --verbose=$(VERBOSE)
+/home/parallels/SAMP_XBEE_WS/devel/lib/XBee_command/XBee_command_node: XBee_command/CMakeFiles/XBee_command_node.dir/src/XBee_command.cpp.o
+/home/parallels/SAMP_XBEE_WS/devel/lib/XBee_command/XBee_command_node: XBee_command/CMakeFiles/XBee_command_node.dir/build.make
+/home/parallels/SAMP_XBEE_WS/devel/lib/XBee_command/XBee_command_node: /opt/ros/kinetic/lib/libroscpp.so
+/home/parallels/SAMP_XBEE_WS/devel/lib/XBee_command/XBee_command_node: /usr/lib/x86_64-linux-gnu/libboost_filesystem.so
+/home/parallels/SAMP_XBEE_WS/devel/lib/XBee_command/XBee_command_node: /usr/lib/x86_64-linux-gnu/libboost_signals.so
+/home/parallels/SAMP_XBEE_WS/devel/lib/XBee_command/XBee_command_node: /opt/ros/kinetic/lib/librosconsole.so
+/home/parallels/SAMP_XBEE_WS/devel/lib/XBee_command/XBee_command_node: /opt/ros/kinetic/lib/librosconsole_log4cxx.so
+/home/parallels/SAMP_XBEE_WS/devel/lib/XBee_command/XBee_command_node: /opt/ros/kinetic/lib/librosconsole_backend_interface.so
+/home/parallels/SAMP_XBEE_WS/devel/lib/XBee_command/XBee_command_node: /usr/lib/x86_64-linux-gnu/liblog4cxx.so
+/home/parallels/SAMP_XBEE_WS/devel/lib/XBee_command/XBee_command_node: /usr/lib/x86_64-linux-gnu/libboost_regex.so
+/home/parallels/SAMP_XBEE_WS/devel/lib/XBee_command/XBee_command_node: /opt/ros/kinetic/lib/libxmlrpcpp.so
+/home/parallels/SAMP_XBEE_WS/devel/lib/XBee_command/XBee_command_node: /opt/ros/kinetic/lib/libserial.so
+/home/parallels/SAMP_XBEE_WS/devel/lib/XBee_command/XBee_command_node: /opt/ros/kinetic/lib/libroscpp_serialization.so
+/home/parallels/SAMP_XBEE_WS/devel/lib/XBee_command/XBee_command_node: /opt/ros/kinetic/lib/librostime.so
+/home/parallels/SAMP_XBEE_WS/devel/lib/XBee_command/XBee_command_node: /opt/ros/kinetic/lib/libcpp_common.so
+/home/parallels/SAMP_XBEE_WS/devel/lib/XBee_command/XBee_command_node: /usr/lib/x86_64-linux-gnu/libboost_system.so
+/home/parallels/SAMP_XBEE_WS/devel/lib/XBee_command/XBee_command_node: /usr/lib/x86_64-linux-gnu/libboost_thread.so
+/home/parallels/SAMP_XBEE_WS/devel/lib/XBee_command/XBee_command_node: /usr/lib/x86_64-linux-gnu/libboost_chrono.so
+/home/parallels/SAMP_XBEE_WS/devel/lib/XBee_command/XBee_command_node: /usr/lib/x86_64-linux-gnu/libboost_date_time.so
+/home/parallels/SAMP_XBEE_WS/devel/lib/XBee_command/XBee_command_node: /usr/lib/x86_64-linux-gnu/libboost_atomic.so
+/home/parallels/SAMP_XBEE_WS/devel/lib/XBee_command/XBee_command_node: /usr/lib/x86_64-linux-gnu/libpthread.so
+/home/parallels/SAMP_XBEE_WS/devel/lib/XBee_command/XBee_command_node: /usr/lib/x86_64-linux-gnu/libconsole_bridge.so
+/home/parallels/SAMP_XBEE_WS/devel/lib/XBee_command/XBee_command_node: XBee_command/CMakeFiles/XBee_command_node.dir/link.txt
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/parallels/SAMP_XBEE_WS/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Linking CXX executable /home/parallels/SAMP_XBEE_WS/devel/lib/XBee_command/XBee_command_node"
+	cd /home/parallels/SAMP_XBEE_WS/build/XBee_command && $(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/XBee_command_node.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
-XBee_command/CMakeFiles/XBee_command_node.dir/build: /home/yunfei/Projects/SAMP_XBEE_WS/devel/lib/XBee_command/XBee_command_node
+XBee_command/CMakeFiles/XBee_command_node.dir/build: /home/parallels/SAMP_XBEE_WS/devel/lib/XBee_command/XBee_command_node
 
 .PHONY : XBee_command/CMakeFiles/XBee_command_node.dir/build
 
@@ -124,10 +124,10 @@ XBee_command/CMakeFiles/XBee_command_node.dir/requires: XBee_command/CMakeFiles/
 .PHONY : XBee_command/CMakeFiles/XBee_command_node.dir/requires
 
 XBee_command/CMakeFiles/XBee_command_node.dir/clean:
-	cd /home/yunfei/Projects/SAMP_XBEE_WS/build/XBee_command && $(CMAKE_COMMAND) -P CMakeFiles/XBee_command_node.dir/cmake_clean.cmake
+	cd /home/parallels/SAMP_XBEE_WS/build/XBee_command && $(CMAKE_COMMAND) -P CMakeFiles/XBee_command_node.dir/cmake_clean.cmake
 .PHONY : XBee_command/CMakeFiles/XBee_command_node.dir/clean
 
 XBee_command/CMakeFiles/XBee_command_node.dir/depend:
-	cd /home/yunfei/Projects/SAMP_XBEE_WS/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/yunfei/Projects/SAMP_XBEE_WS/src /home/yunfei/Projects/SAMP_XBEE_WS/src/XBee_command /home/yunfei/Projects/SAMP_XBEE_WS/build /home/yunfei/Projects/SAMP_XBEE_WS/build/XBee_command /home/yunfei/Projects/SAMP_XBEE_WS/build/XBee_command/CMakeFiles/XBee_command_node.dir/DependInfo.cmake --color=$(COLOR)
+	cd /home/parallels/SAMP_XBEE_WS/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/parallels/SAMP_XBEE_WS/src /home/parallels/SAMP_XBEE_WS/src/XBee_command /home/parallels/SAMP_XBEE_WS/build /home/parallels/SAMP_XBEE_WS/build/XBee_command /home/parallels/SAMP_XBEE_WS/build/XBee_command/CMakeFiles/XBee_command_node.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : XBee_command/CMakeFiles/XBee_command_node.dir/depend
 

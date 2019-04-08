@@ -43,10 +43,10 @@ RM = /usr/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/yunfei/Projects/SAMP_XBEE_WS/src
+CMAKE_SOURCE_DIR = /home/parallels/SAMP_XBEE_WS/src
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/yunfei/Projects/SAMP_XBEE_WS/build
+CMAKE_BINARY_DIR = /home/parallels/SAMP_XBEE_WS/build
 
 # Utility rule file for roscpp_generate_messages_py.
 
@@ -63,10 +63,10 @@ XBee_command/CMakeFiles/roscpp_generate_messages_py.dir/build: roscpp_generate_m
 .PHONY : XBee_command/CMakeFiles/roscpp_generate_messages_py.dir/build
 
 XBee_command/CMakeFiles/roscpp_generate_messages_py.dir/clean:
-	cd /home/yunfei/Projects/SAMP_XBEE_WS/build/XBee_command && $(CMAKE_COMMAND) -P CMakeFiles/roscpp_generate_messages_py.dir/cmake_clean.cmake
+	cd /home/parallels/SAMP_XBEE_WS/build/XBee_command && $(CMAKE_COMMAND) -P CMakeFiles/roscpp_generate_messages_py.dir/cmake_clean.cmake
 .PHONY : XBee_command/CMakeFiles/roscpp_generate_messages_py.dir/clean
 
 XBee_command/CMakeFiles/roscpp_generate_messages_py.dir/depend:
-	cd /home/yunfei/Projects/SAMP_XBEE_WS/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/yunfei/Projects/SAMP_XBEE_WS/src /home/yunfei/Projects/SAMP_XBEE_WS/src/XBee_command /home/yunfei/Projects/SAMP_XBEE_WS/build /home/yunfei/Projects/SAMP_XBEE_WS/build/XBee_command /home/yunfei/Projects/SAMP_XBEE_WS/build/XBee_command/CMakeFiles/roscpp_generate_messages_py.dir/DependInfo.cmake --color=$(COLOR)
+	cd /home/parallels/SAMP_XBEE_WS/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/parallels/SAMP_XBEE_WS/src /home/parallels/SAMP_XBEE_WS/src/XBee_command /home/parallels/SAMP_XBEE_WS/build /home/parallels/SAMP_XBEE_WS/build/XBee_command /home/parallels/SAMP_XBEE_WS/build/XBee_command/CMakeFiles/roscpp_generate_messages_py.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : XBee_command/CMakeFiles/roscpp_generate_messages_py.dir/depend
 

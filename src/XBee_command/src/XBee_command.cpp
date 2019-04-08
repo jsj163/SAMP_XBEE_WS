@@ -41,10 +41,16 @@ void write_callback(const std_msgs::String::ConstPtr& msg) {
             switch(check_command){
                   case get_imu_data:{
                         ROS_INFO("imu\n");
+                        POLL_REQUEST req = { { '>', '*', '>', 'p' }, IMU_CalcData };
+                        // ROS_INFO_STREAM("Writing to serial port" <<req); 
+                        ser.write((const uint8_t *)&req, sizeof(POLL_REQUEST));   //发送串口数据   
                         break;
                   }
                   case get_gps_data:{
                         ROS_INFO("gps\n");
+                        POLL_REQUEST req = { { '>', '*', '>', 'p' }, GPS_Data };
+                        // ROS_INFO_STREAM("Writing to serial port" <<req); 
+                        ser.write((const uint8_t *)&req, sizeof(POLL_REQUEST));   //发送串口数据
                         break;
                         
                   }
@@ -73,16 +79,18 @@ void write_callback(const std_msgs::String::ConstPtr& msg) {
                         break;
                               
                   }
+                  default:
+                        break;
             }
 
             // write_buf.erase(0,1);   //reduce '\'
-            uint16_t packets;
-            write_buf >> packets;
-            POLL_REQUEST req = { { '>', '*', '>', 'p' }, packets };
-            // ROS_INFO_STREAM("Writing to serial port" <<msg->data); 
-            ROS_INFO_STREAM("Writing to serial port" <<write_buf); 
+            // uint16_t packets;
+            // write_buf >> packets;
+            // POLL_REQUEST req = { { '>', '*', '>', 'p' }, packets };
+            // // ROS_INFO_STREAM("Writing to serial port" <<msg->data); 
+            // ROS_INFO_STREAM("Writing to serial port" <<write_buf); 
             // ser.write(msg->data);   //发送串口数据 
-            ser.write((const uint8_t *)&req, sizeof(POLL_REQUEST));   //发送串口数据   
+            // ser.write((const uint8_t *)&req, sizeof(POLL_REQUEST));   //发送串口数据   
       }
       
 } 
@@ -151,14 +159,27 @@ int main (int argc, char** argv)
 
                         switch(pHead->packet_desc)
                         {
-                              case 0x03:  // PD_IMUCALCDATA
+                              case PD_IMUCALCDATA:  // PD_IMUCALCDATA
                               {
                                 IMU_CALCDATA* pCalcData = (IMU_CALCDATA*)&buf[i];
                                 ROS_INFO_STREAM("angle_nick: " << pCalcData->angle_nick);
                                 ROS_INFO_STREAM("angle_roll: " << pCalcData->angle_roll);
                                 ROS_INFO_STREAM("angle_yaw: " << pCalcData->angle_yaw);
-                              }
+                                ROS_INFO_STREAM("height: " << pCalcData->height);
                                 break;
+                              }
+                              case PD_GPSDATA:  // PD_IMUCALCDATA
+                              {
+                                GPS_DATA* pCalcData = (GPS_DATA*)&buf[i];
+                                ROS_INFO_STREAM("latitude: " << pCalcData->latitude);
+                                ROS_INFO_STREAM("longitude: " << pCalcData->longitude);
+                                ROS_INFO_STREAM("height: " << pCalcData->height);
+                                break;
+                              }
+
+                              default:
+                                    break;
+                                
                         }
 
                         i += pHead->length;
