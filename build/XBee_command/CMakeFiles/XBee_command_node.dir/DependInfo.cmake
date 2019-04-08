@@ -4,7 +4,7 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_CXX
-  "/home/parallels/SAMP_XBEE_WS/src/XBee_command/src/XBee_command.cpp" "/home/parallels/SAMP_XBEE_WS/build/XBee_command/CMakeFiles/XBee_command_node.dir/src/XBee_command.cpp.o"
+  "/home/yunfei/Projects/SAMP_XBEE_WS/src/XBee_command/src/XBee_command.cpp" "/home/yunfei/Projects/SAMP_XBEE_WS/build/XBee_command/CMakeFiles/XBee_command_node.dir/src/XBee_command.cpp.o"
   )
 set(CMAKE_CXX_COMPILER_ID "GNU")
 

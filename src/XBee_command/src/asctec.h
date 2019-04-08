@@ -298,6 +298,12 @@ typedef struct _WAYPOINT
   int32_t height;
 } WAYPOINT;
 
+typedef struct _WAYPOINT_CMD
+{
+  char startstring[5];
+  WAYPOINT cmd;
+} WAYPOINT_CMD;
+
 #define WPPROP_ABSCOORDS		0x01 //if set waypoint is interpreted as absolute coordinates, else relative coords
 #define WPPROP_HEIGHTENABLED	0x02 //set new height at waypoint
 #define WPPROP_YAWENABLED 		0x04 //set new yaw-angle at waypoint (not yet implemented)

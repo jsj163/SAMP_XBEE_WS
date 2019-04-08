@@ -4,13 +4,14 @@
 #include <std_msgs/Empty.h> 
 #include "asctec.h"
 
-int waypointNumber = 0;
+uint8_t waypointNumber = 1;
 serial::Serial ser; //声明串口对象 
 enum Commands{
       get_imu_data,
       get_gps_data,
       waypoint,
-      waypoint_start,
+      goto_waypoint,
+      launch_waypoint,
       waypoint_auto,
       motor_test,
       command_invalid
@@ -20,7 +21,8 @@ Commands resolveCommands(std::string input){
       if( input == "get_imu_data" ) return get_imu_data;
       if( input == "get_gps_data" ) return get_gps_data;
       if( input == "waypoint" ) return waypoint;
-      if( input == "waypoint_start" ) return waypoint_start;
+      if( input == "goto_waypoint" ) return goto_waypoint;
+      if( input == "launch_waypoint" ) return launch_waypoint;
       if( input == "waypoint_auto" ) return waypoint_auto;
       if( input == "motor_test" ) return motor_test;
       return command_invalid;
@@ -32,6 +34,7 @@ void write_callback(const std_msgs::String::ConstPtr& msg) {
             std::string tmp;
             std::string command_list[50];
             int i = 0;
+
             while (std::getline(write_buf, tmp, ',')){
                   command_list[i] = tmp;
                   i++;
@@ -56,21 +59,93 @@ void write_callback(const std_msgs::String::ConstPtr& msg) {
                   }
                   case waypoint:{
                         ROS_INFO("wp\n");
+                        WAYPOINT_CMD wp = { { '>', '*', '>', 'w', 's' } };
+                        wp.cmd.wp_number = 1;
+                        wp.cmd.properties = WPPROP_ABSCOORDS;
+                        wp.cmd.max_speed = 100;
+                        wp.cmd.time = 0.01;
+                        wp.cmd.pos_acc = 2500;
+                        std::stringstream tmp_ss(command_list[1]);
+                        uint8_t wp_x;
+                        tmp_ss>>wp_x;
+                        tmp_ss.str("");
+                        tmp_ss.clear();
+                        wp.cmd.X = wp_x;
+                        tmp_ss.str(command_list[2]);
+                        uint8_t wp_y;
+                        tmp_ss>>wp_y;
+                        tmp_ss.str("");
+                        tmp_ss.clear();
+                        wp.cmd.Y = wp_y;
+                        wp.cmd.yaw = 0;
+                        tmp_ss.str(command_list[3]);
+                        uint8_t wp_h;
+                        tmp_ss>>wp_h;
+                        wp.cmd.height = wp_h;
+                        tmp_ss.str("");
+                        tmp_ss.clear();
+                        wp.cmd.chksum = 0xAAAA + wp.cmd.yaw + wp.cmd.height + wp.cmd.time + wp.cmd.X + wp.cmd.Y + wp.cmd.max_speed + wp.cmd.pos_acc + wp.cmd.properties + wp.cmd.wp_number;
+                        ser.write((const uint8_t *)&wp, sizeof(WAYPOINT_CMD));
                         break;
                         
                   }
-                  case waypoint_start:{
-                        ROS_INFO("wps\n");
+                  case goto_waypoint:{
+                        ROS_INFO("wp_goto\n");
+                        std::string cmd = ">*>wg";
+                        ser.write(cmd);
                         break;
-                              
                   }
+                  case launch_waypoint:{
+                        ROS_INFO("launch waypoint\n");
+                        std::string cmd = ">*>wl";
+                        ser.write(cmd);
+                        break;
+                  }
+                  
                   case waypoint_auto:{
                         ROS_INFO("wpa\n");
+                        WAYPOINT_CMD wp = { { '>', '*', '>', 'w', 's' } };
+                        wp.cmd.wp_number = 1;
+                        wp.cmd.properties = WPPROP_AUTOMATICGOTO;
+                        wp.cmd.max_speed = 100;
+                        wp.cmd.time = 0.01;
+                        wp.cmd.pos_acc = 2500;
+                        std::stringstream tmp_ss(command_list[1]);
+                        uint8_t wp_x;
+                        tmp_ss>>wp_x;
+                        tmp_ss.str("");
+                        tmp_ss.clear();
+                        wp.cmd.X = wp_x;
+                        tmp_ss.str(command_list[2]);
+                        uint8_t wp_y;
+                        tmp_ss>>wp_y;
+                        tmp_ss.str("");
+                        tmp_ss.clear();
+                        wp.cmd.Y = wp_y;
+                        wp.cmd.yaw = 0;
+                        tmp_ss.str(command_list[3]);
+                        uint8_t wp_h;
+                        tmp_ss>>wp_h;
+                        wp.cmd.height = wp_h;
+                        tmp_ss.str("");
+                        tmp_ss.clear();
+                        wp.cmd.chksum = 0xAAAA + wp.cmd.yaw + wp.cmd.height + wp.cmd.time + wp.cmd.X + wp.cmd.Y + wp.cmd.max_speed + wp.cmd.pos_acc + wp.cmd.properties + wp.cmd.wp_number;
+                        ser.write((const uint8_t *)&wp, sizeof(WAYPOINT_CMD));
                         break;
                               
                   }
                   case motor_test:{
                         ROS_INFO("motor_test\n");
+                        CTRL_INPUT_CMD ctrl = { { '>', '*', '>', 'd', 'i' } };
+                        ctrl.cmd.ctrl = 0x0F; // enable pitch/roll/yaw/thrust commands
+                        ctrl.cmd.pitch = 0;
+                        ctrl.cmd.roll = 0;
+                        ctrl.cmd.yaw = 0;
+                        std::stringstream tmp_ss(command_list[1]);
+                        int16_t thrust;
+                        tmp_ss>>thrust;
+                        ctrl.cmd.thrust = thrust;
+                        ser.write((const uint8_t *)&ctrl, sizeof(CTRL_INPUT_CMD));
                         break;
                               
                   }

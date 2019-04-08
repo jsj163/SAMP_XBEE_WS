@@ -1,8 +1,8 @@
-prefix=/home/parallels/SAMP_XBEE_WS/devel
+prefix=/home/yunfei/Projects/SAMP_XBEE_WS/devel
 
 Name: XBee_command
 Description: Description of XBee_command
 Version: 0.0.0
 Cflags: 
-Libs: -L/home/parallels/SAMP_XBEE_WS/devel/lib 
+Libs: -L/home/yunfei/Projects/SAMP_XBEE_WS/devel/lib 
 Requires: 
