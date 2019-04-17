@@ -304,13 +304,48 @@ typedef struct _WAYPOINT_CMD
   WAYPOINT cmd;
 } WAYPOINT_CMD;
 
+typedef struct _CURRENT_WAY
+{
+  // the only relevant values are navigation_status and distance_to_wp
+
+  unsigned char dummy1;
+  unsigned char properties;
+
+  //total number of waypoints uploaded to the vehicle
+  unsigned short nr_of_wp;
+
+  //the waypoint to be reached next
+  unsigned char current_wp;
+
+  //memory location of the current wp (0 .. nr_of_wp)
+  unsigned char current_wp_memlocation;
+
+  //status of waypoint engine: 0: STANDBY, 1: Executing way from Flash, 2: PC controlled waypoint navigation
+  unsigned char status;
+
+  unsigned char dummy2;
+
+  //see WP_NAVSTAT_... defines
+  unsigned short navigation_status;
+
+  //distance to WP in dm
+  unsigned short distance_to_wp;
+} CURRENT_WAY;
+ 
+//WP status defines
+#define WP_NAVSTAT_REACHED_POS      0x01 //vehicle has entered a radius of WAYPOINT.pos_acc and time to stay is not neccessarily over
+#define WP_NAVSTAT_REACHED_POS_TIME 0x02 //vehicle is within a radius of WAYPOINT.pos_acc and time to stay is over
+#define WP_NAVSTAT_20M              0x04 //vehicle within a 20m radius of the waypoint
+#define WP_NAVSTAT_PILOT_ABORT      0x08 //waypoint navigation aborted by safety pilot
+
+//WP properties defines
 #define WPPROP_ABSCOORDS		0x01 //if set waypoint is interpreted as absolute coordinates, else relative coords
 #define WPPROP_HEIGHTENABLED	0x02 //set new height at waypoint
 #define WPPROP_YAWENABLED 		0x04 //set new yaw-angle at waypoint (not yet implemented)
 #define WPPROP_AUTOMATICGOTO 	0x10 //if set, vehicle will not wait for a goto command, but goto this waypoint directly
 #define WPPROP_CAM_TRIGGER 		0x20 //if set, photo camera is triggered when waypoint is reached and time to stay is 80% u
 
-
+//Data monitoring feedbacks
 #define PD_IMURAWDATA 0x01
 #define PD_LLSTATUS 0x02
 #define PD_IMUCALCDATA 0x03
@@ -335,6 +370,7 @@ typedef struct _WAYPOINT_CMD
 #define PD_HOMECOMMAND 0x28
 #define PD_GPSDATAADVANCED 0x29
 
+//Data monitoring commands
 #define LL_Status 0x0001
 #define IMU_RawData  0x0002
 #define IMU_CalcData  0x0004

@@ -1,4 +1,4 @@
-#!/home/yunfei/bin/python
+#!/usr/bin/python
 # -*- coding: utf-8 -*-
 
 # Software License Agreement (BSD License)
@@ -262,7 +262,7 @@ if __name__ == '__main__':
             sys.exit(1)
 
         # environment at generation time
-        CMAKE_PREFIX_PATH = '/home/yunfei/swarm-primitive-dp/swarm_simulator/devel;/opt/ros/kinetic'.split(';')
+        CMAKE_PREFIX_PATH = '/home/parallels/SAMP_XBEE_WS/devel;/home/parallels/IntelRealSense_ws/devel;/home/parallels/catkin_ws/devel;/opt/ros/kinetic'.split(';')
         # prepend current workspace if not already part of CPP
         base_path = os.path.dirname(__file__)
         if base_path not in CMAKE_PREFIX_PATH:
