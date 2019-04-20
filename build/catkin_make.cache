@@ -1,2 +1,2 @@
 XBee_command
--DCATKIN_DEVEL_PREFIX=/home/parallels/SAMP_XBEE_WS/devel -DCMAKE_INSTALL_PREFIX=/home/parallels/SAMP_XBEE_WS/install -G Unix Makefiles
+-DCATKIN_DEVEL_PREFIX=/home/yunfei/Projects/SAMP_XBEE_WS/devel -DCMAKE_INSTALL_PREFIX=/home/yunfei/Projects/SAMP_XBEE_WS/install -G Unix Makefiles

@@ -2,7 +2,7 @@
 
 message(STATUS "XBee_command: 1 messages, 0 services")
 
-set(MSG_I_FLAGS "-IXBee_command:/home/parallels/SAMP_XBEE_WS/src/XBee_command/msg;-Istd_msgs:/opt/ros/kinetic/share/std_msgs/cmake/../msg")
+set(MSG_I_FLAGS "-IXBee_command:/home/yunfei/Projects/SAMP_XBEE_WS/src/XBee_command/msg;-Istd_msgs:/opt/ros/kinetic/share/std_msgs/cmake/../msg")
 
 # Find all generators
 find_package(gencpp REQUIRED)
@@ -17,9 +17,9 @@ add_custom_target(XBee_command_generate_messages ALL)
 
 
 
-get_filename_component(_filename "/home/parallels/SAMP_XBEE_WS/src/XBee_command/msg/Temperature.msg" NAME_WE)
+get_filename_component(_filename "/home/yunfei/Projects/SAMP_XBEE_WS/src/XBee_command/msg/Temperature.msg" NAME_WE)
 add_custom_target(_XBee_command_generate_messages_check_deps_${_filename}
-  COMMAND ${CATKIN_ENV} ${PYTHON_EXECUTABLE} ${GENMSG_CHECK_DEPS_SCRIPT} "XBee_command" "/home/parallels/SAMP_XBEE_WS/src/XBee_command/msg/Temperature.msg" "std_msgs/Header"
+  COMMAND ${CATKIN_ENV} ${PYTHON_EXECUTABLE} ${GENMSG_CHECK_DEPS_SCRIPT} "XBee_command" "/home/yunfei/Projects/SAMP_XBEE_WS/src/XBee_command/msg/Temperature.msg" "std_msgs/Header"
 )
 
 #
@@ -29,7 +29,7 @@ add_custom_target(_XBee_command_generate_messages_check_deps_${_filename}
 ### Section generating for lang: gencpp
 ### Generating Messages
 _generate_msg_cpp(XBee_command
-  "/home/parallels/SAMP_XBEE_WS/src/XBee_command/msg/Temperature.msg"
+  "/home/yunfei/Projects/SAMP_XBEE_WS/src/XBee_command/msg/Temperature.msg"
   "${MSG_I_FLAGS}"
   "/opt/ros/kinetic/share/std_msgs/cmake/../msg/Header.msg"
   ${CATKIN_DEVEL_PREFIX}/${gencpp_INSTALL_DIR}/XBee_command
@@ -49,7 +49,7 @@ add_custom_target(XBee_command_generate_messages_cpp
 add_dependencies(XBee_command_generate_messages XBee_command_generate_messages_cpp)
 
 # add dependencies to all check dependencies targets
-get_filename_component(_filename "/home/parallels/SAMP_XBEE_WS/src/XBee_command/msg/Temperature.msg" NAME_WE)
+get_filename_component(_filename "/home/yunfei/Projects/SAMP_XBEE_WS/src/XBee_command/msg/Temperature.msg" NAME_WE)
 add_dependencies(XBee_command_generate_messages_cpp _XBee_command_generate_messages_check_deps_${_filename})
 
 # target for backward compatibility
@@ -62,7 +62,7 @@ list(APPEND ${PROJECT_NAME}_EXPORTED_TARGETS XBee_command_generate_messages_cpp)
 ### Section generating for lang: geneus
 ### Generating Messages
 _generate_msg_eus(XBee_command
-  "/home/parallels/SAMP_XBEE_WS/src/XBee_command/msg/Temperature.msg"
+  "/home/yunfei/Projects/SAMP_XBEE_WS/src/XBee_command/msg/Temperature.msg"
   "${MSG_I_FLAGS}"
   "/opt/ros/kinetic/share/std_msgs/cmake/../msg/Header.msg"
   ${CATKIN_DEVEL_PREFIX}/${geneus_INSTALL_DIR}/XBee_command
@@ -82,7 +82,7 @@ add_custom_target(XBee_command_generate_messages_eus
 add_dependencies(XBee_command_generate_messages XBee_command_generate_messages_eus)
 
 # add dependencies to all check dependencies targets
-get_filename_component(_filename "/home/parallels/SAMP_XBEE_WS/src/XBee_command/msg/Temperature.msg" NAME_WE)
+get_filename_component(_filename "/home/yunfei/Projects/SAMP_XBEE_WS/src/XBee_command/msg/Temperature.msg" NAME_WE)
 add_dependencies(XBee_command_generate_messages_eus _XBee_command_generate_messages_check_deps_${_filename})
 
 # target for backward compatibility
@@ -95,7 +95,7 @@ list(APPEND ${PROJECT_NAME}_EXPORTED_TARGETS XBee_command_generate_messages_eus)
 ### Section generating for lang: genlisp
 ### Generating Messages
 _generate_msg_lisp(XBee_command
-  "/home/parallels/SAMP_XBEE_WS/src/XBee_command/msg/Temperature.msg"
+  "/home/yunfei/Projects/SAMP_XBEE_WS/src/XBee_command/msg/Temperature.msg"
   "${MSG_I_FLAGS}"
   "/opt/ros/kinetic/share/std_msgs/cmake/../msg/Header.msg"
   ${CATKIN_DEVEL_PREFIX}/${genlisp_INSTALL_DIR}/XBee_command
@@ -115,7 +115,7 @@ add_custom_target(XBee_command_generate_messages_lisp
 add_dependencies(XBee_command_generate_messages XBee_command_generate_messages_lisp)
 
 # add dependencies to all check dependencies targets
-get_filename_component(_filename "/home/parallels/SAMP_XBEE_WS/src/XBee_command/msg/Temperature.msg" NAME_WE)
+get_filename_component(_filename "/home/yunfei/Projects/SAMP_XBEE_WS/src/XBee_command/msg/Temperature.msg" NAME_WE)
 add_dependencies(XBee_command_generate_messages_lisp _XBee_command_generate_messages_check_deps_${_filename})
 
 # target for backward compatibility
@@ -128,7 +128,7 @@ list(APPEND ${PROJECT_NAME}_EXPORTED_TARGETS XBee_command_generate_messages_lisp
 ### Section generating for lang: gennodejs
 ### Generating Messages
 _generate_msg_nodejs(XBee_command
-  "/home/parallels/SAMP_XBEE_WS/src/XBee_command/msg/Temperature.msg"
+  "/home/yunfei/Projects/SAMP_XBEE_WS/src/XBee_command/msg/Temperature.msg"
   "${MSG_I_FLAGS}"
   "/opt/ros/kinetic/share/std_msgs/cmake/../msg/Header.msg"
   ${CATKIN_DEVEL_PREFIX}/${gennodejs_INSTALL_DIR}/XBee_command
@@ -148,7 +148,7 @@ add_custom_target(XBee_command_generate_messages_nodejs
 add_dependencies(XBee_command_generate_messages XBee_command_generate_messages_nodejs)
 
 # add dependencies to all check dependencies targets
-get_filename_component(_filename "/home/parallels/SAMP_XBEE_WS/src/XBee_command/msg/Temperature.msg" NAME_WE)
+get_filename_component(_filename "/home/yunfei/Projects/SAMP_XBEE_WS/src/XBee_command/msg/Temperature.msg" NAME_WE)
 add_dependencies(XBee_command_generate_messages_nodejs _XBee_command_generate_messages_check_deps_${_filename})
 
 # target for backward compatibility
@@ -161,7 +161,7 @@ list(APPEND ${PROJECT_NAME}_EXPORTED_TARGETS XBee_command_generate_messages_node
 ### Section generating for lang: genpy
 ### Generating Messages
 _generate_msg_py(XBee_command
-  "/home/parallels/SAMP_XBEE_WS/src/XBee_command/msg/Temperature.msg"
+  "/home/yunfei/Projects/SAMP_XBEE_WS/src/XBee_command/msg/Temperature.msg"
   "${MSG_I_FLAGS}"
   "/opt/ros/kinetic/share/std_msgs/cmake/../msg/Header.msg"
   ${CATKIN_DEVEL_PREFIX}/${genpy_INSTALL_DIR}/XBee_command
@@ -181,7 +181,7 @@ add_custom_target(XBee_command_generate_messages_py
 add_dependencies(XBee_command_generate_messages XBee_command_generate_messages_py)
 
 # add dependencies to all check dependencies targets
-get_filename_component(_filename "/home/parallels/SAMP_XBEE_WS/src/XBee_command/msg/Temperature.msg" NAME_WE)
+get_filename_component(_filename "/home/yunfei/Projects/SAMP_XBEE_WS/src/XBee_command/msg/Temperature.msg" NAME_WE)
 add_dependencies(XBee_command_generate_messages_py _XBee_command_generate_messages_check_deps_${_filename})
 
 # target for backward compatibility
@@ -238,7 +238,7 @@ if(TARGET std_msgs_generate_messages_nodejs)
 endif()
 
 if(genpy_INSTALL_DIR AND EXISTS ${CATKIN_DEVEL_PREFIX}/${genpy_INSTALL_DIR}/XBee_command)
-  install(CODE "execute_process(COMMAND \"/usr/bin/python\" -m compileall \"${CATKIN_DEVEL_PREFIX}/${genpy_INSTALL_DIR}/XBee_command\")")
+  install(CODE "execute_process(COMMAND \"/home/yunfei/bin/python\" -m compileall \"${CATKIN_DEVEL_PREFIX}/${genpy_INSTALL_DIR}/XBee_command\")")
   # install generated code
   install(
     DIRECTORY ${CATKIN_DEVEL_PREFIX}/${genpy_INSTALL_DIR}/XBee_command

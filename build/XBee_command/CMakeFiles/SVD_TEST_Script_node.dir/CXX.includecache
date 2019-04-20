@@ -6,7 +6,7 @@
 
 #IncludeRegexTransform: 
 
-/home/parallels/SAMP_XBEE_WS/src/XBee_command/src/SVD_TEST_Script.cpp
+/home/yunfei/Projects/SAMP_XBEE_WS/src/XBee_command/src/SVD_TEST_Script.cpp
 ros/ros.h
 -
 std_msgs/String.h
@@ -14,9 +14,9 @@ std_msgs/String.h
 std_msgs/Empty.h
 -
 asctec.h
-/home/parallels/SAMP_XBEE_WS/src/XBee_command/src/asctec.h
+/home/yunfei/Projects/SAMP_XBEE_WS/src/XBee_command/src/asctec.h
 
-/home/parallels/SAMP_XBEE_WS/src/XBee_command/src/asctec.h
+/home/yunfei/Projects/SAMP_XBEE_WS/src/XBee_command/src/asctec.h
 stdint.h
 -
 

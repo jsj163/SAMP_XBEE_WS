@@ -39,6 +39,7 @@ void gps_callback(const sensor_msgs::NavSatFix::ConstPtr& msg) {
 
                   if(dist_flag){                //GPS converge, start temperature sampling
                         ROS_INFO("GPS converge, start temperature sampling.\n");
+                        std::cout<<"Converged latitude: "<<msg->latitude<<" Converged longitude: "<<msg->longitude<<std::endl;
                         gps_converg_flag = true;
                   }
             }
@@ -68,6 +69,8 @@ void tmp_callback(const XBee_command::Temperature::ConstPtr& msg) {
 
                   if(tmp_err_flag){                //Temperature converge, start next WP
                         ROS_INFO("Temperature converge, start next WP.\n");
+                        std::cout<<"Converged Temperature: "<<msg->data<<std::endl;
+
                         tmp_converg_flag = true;
                   }
             }
@@ -94,17 +97,21 @@ int main (int argc, char** argv)
       while(ros::ok()) 
       { 
             if(gps_converg_flag && tmp_converg_flag && waypointNumber<=3){   
-                  std::string wp_command = "waypoint"+('0'+waypointNumber++);
+                  std::string wp_command = "waypoint";
+                  wp_command.push_back('0'+(waypointNumber++));
                   std_msgs::String ros_wp_cmd;
                   ros_wp_cmd.data = wp_command;
                   cmd_pub.publish(ros_wp_cmd);
+                  // printf("%s\n",wp_command );
+                  std::cout<<wp_command<<std::endl;
 
-                  ROS_INFO("Going to %s \n",wp_command);
+                  // ROS_INFO("Going to %s \n",wp_command);
                   gps_converg_flag = false;
                   tmp_converg_flag = false;
                   lat_buff.clear();
                   long_buff.clear();
                   tmp_buff.clear();
+                  ros::Duration(1).sleep();
             }
             ros::spinOnce(); 
             loop_rate.sleep(); 

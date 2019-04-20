@@ -6,7 +6,7 @@
 
 #IncludeRegexTransform: 
 
-/home/parallels/SAMP_XBEE_WS/devel/include/XBee_command/Temperature.h
+/home/yunfei/Projects/SAMP_XBEE_WS/devel/include/XBee_command/Temperature.h
 string
 -
 vector
@@ -24,7 +24,7 @@ ros/message_operations.h
 std_msgs/Header.h
 -
 
-/home/parallels/SAMP_XBEE_WS/src/XBee_command/src/SVD_Auto_Navi.cpp
+/home/yunfei/Projects/SAMP_XBEE_WS/src/XBee_command/src/SVD_Auto_Navi.cpp
 ros/ros.h
 -
 std_msgs/String.h
@@ -32,15 +32,15 @@ std_msgs/String.h
 std_msgs/Empty.h
 -
 asctec.h
-/home/parallels/SAMP_XBEE_WS/src/XBee_command/src/asctec.h
+/home/yunfei/Projects/SAMP_XBEE_WS/src/XBee_command/src/asctec.h
 sensor_msgs/NavSatFix.h
-/home/parallels/SAMP_XBEE_WS/src/XBee_command/src/sensor_msgs/NavSatFix.h
+/home/yunfei/Projects/SAMP_XBEE_WS/src/XBee_command/src/sensor_msgs/NavSatFix.h
 XBee_command/Temperature.h
-/home/parallels/SAMP_XBEE_WS/src/XBee_command/src/XBee_command/Temperature.h
+/home/yunfei/Projects/SAMP_XBEE_WS/src/XBee_command/src/XBee_command/Temperature.h
 math.h
 -
 
-/home/parallels/SAMP_XBEE_WS/src/XBee_command/src/asctec.h
+/home/yunfei/Projects/SAMP_XBEE_WS/src/XBee_command/src/asctec.h
 stdint.h
 -
 
