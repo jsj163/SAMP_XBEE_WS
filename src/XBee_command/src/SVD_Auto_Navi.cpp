@@ -96,7 +96,7 @@ int main (int argc, char** argv)
 
       while(ros::ok()) 
       { 
-            if(gps_converg_flag && tmp_converg_flag && waypointNumber<=3){   
+            if(gps_converg_flag && tmp_converg_flag && waypointNumber<=1){   
                   std::string wp_command = "waypoint";
                   wp_command.push_back('0'+(waypointNumber++));
                   std_msgs::String ros_wp_cmd;
@@ -111,7 +111,16 @@ int main (int argc, char** argv)
                   lat_buff.clear();
                   long_buff.clear();
                   tmp_buff.clear();
-                  ros::Duration(1).sleep();
+                  ros::Duration(2).sleep();
+
+                  wp_command = "go_home";
+                  ros_wp_cmd.data = wp_command;
+                  cmd_pub.publish(ros_wp_cmd);
+                  ros::Duration(30).sleep();
+
+                  wp_command = "land";
+                  ros_wp_cmd.data = wp_command;
+                  cmd_pub.publish(ros_wp_cmd);
             }
             ros::spinOnce(); 
             loop_rate.sleep(); 
