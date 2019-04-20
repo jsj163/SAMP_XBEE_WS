@@ -1,11 +1,11 @@
 #include <ros/ros.h> 
-#include <serial/serial.h>  //ROS已经内置了的串口包 
+#include <serial/serial.h>  
 #include <std_msgs/String.h> 
 #include <std_msgs/Empty.h> 
 #include "asctec.h"
 
 uint8_t waypointNumber = 1;
-serial::Serial ser; //声明串口对象 
+serial::Serial ser; 
 enum Commands{
       get_imu_data,
       get_gps_data,
@@ -95,7 +95,7 @@ void write_callback(const std_msgs::String::ConstPtr& msg) {
                         wp.cmd.properties = WPPROP_ABSCOORDS;
                         wp.cmd.max_speed = 100;
                         wp.cmd.time = 1000;
-                        wp.cmd.pos_acc = 2500;
+                        wp.cmd.pos_acc = 1500;
                         std::stringstream tmp_ss(command_list[1]);
                         int32_t wp_x;
                         tmp_ss>>wp_x;
@@ -151,7 +151,7 @@ void write_callback(const std_msgs::String::ConstPtr& msg) {
                         wp.cmd.properties = WPPROP_AUTOMATICGOTO;
                         wp.cmd.max_speed = 100;
                         wp.cmd.time = 1000;
-                        wp.cmd.pos_acc = 2500;
+                        wp.cmd.pos_acc = 1500;
                         std::stringstream tmp_ss(command_list[1]);
                         int32_t wp_x;
                         tmp_ss>>wp_x;
@@ -200,31 +200,23 @@ void write_callback(const std_msgs::String::ConstPtr& msg) {
                   default:
                         break;
             }
-
-            // write_buf.erase(0,1);   //reduce '\'
-            // uint16_t packets;
-            // write_buf >> packets;
-            // POLL_REQUEST req = { { '>', '*', '>', 'p' }, packets };
-            // // ROS_INFO_STREAM("Writing to serial port" <<msg->data); 
-            // ROS_INFO_STREAM("Writing to serial port" <<write_buf); 
-            // ser.write(msg->data);   //sending serial command 
-            // ser.write((const uint8_t *)&req, sizeof(POLL_REQUEST));   //sending serial command   
       }
       
 } 
+
+
 int main (int argc, char** argv) 
 { 
-      //初始化节点 
+
       ros::init(argc, argv, "XBee_example_node"); 
-      //声明节点句柄 
+
       ros::NodeHandle nh; 
-      //订阅主题，并配置回调函数 
+
       ros::Subscriber write_sub = nh.subscribe("write", 1, write_callback); 
-      //发布主题 
+
       ros::Publisher read_pub = nh.advertise<std_msgs::String>("read", 1000); 
       try 
       { 
-            //设置串口属性，并打开串口 
             ser.setPort("/dev/ttyUSB0"); 
             ser.setBaudrate(57600); 
             serial::Timeout to = serial::Timeout::simpleTimeout(1000); 
@@ -236,7 +228,7 @@ int main (int argc, char** argv)
             ROS_ERROR_STREAM("Unable to open port "); 
             return -1; 
       } 
-      //检测串口是否已经打开，并给出提示信息 
+
       if(ser.isOpen()) 
       { 
             ROS_INFO_STREAM("Serial Port initialized"); 
@@ -244,9 +236,9 @@ int main (int argc, char** argv)
       else 
       { 
             return -1; 
-      } 
-      //指定循环的频率 
-      ros::Rate loop_rate(10);
+
+      }
+      ros::Rate loop_rate(10);      //Loop Rate: 10Hz
 
       POLL_HEADER* pHead;
       POLL_FOOTER* pFoot;

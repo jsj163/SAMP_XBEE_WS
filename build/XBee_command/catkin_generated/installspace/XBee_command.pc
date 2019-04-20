@@ -3,6 +3,6 @@ prefix=/home/parallels/SAMP_XBEE_WS/install
 Name: XBee_command
 Description: Description of XBee_command
 Version: 0.0.0
-Cflags: 
+Cflags: -I/home/parallels/SAMP_XBEE_WS/install/include
 Libs: -L/home/parallels/SAMP_XBEE_WS/install/lib 
-Requires: 
+Requires: message_runtime

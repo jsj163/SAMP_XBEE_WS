@@ -91,9 +91,9 @@ endif()
 # flag project as catkin-based to distinguish if a find_package()-ed project is a catkin project
 set(XBee_command_FOUND_CATKIN_PROJECT TRUE)
 
-if(NOT " " STREQUAL " ")
+if(NOT "/home/parallels/SAMP_XBEE_WS/devel/include " STREQUAL " ")
   set(XBee_command_INCLUDE_DIRS "")
-  set(_include_dirs "")
+  set(_include_dirs "/home/parallels/SAMP_XBEE_WS/devel/include")
   if(NOT " " STREQUAL " ")
     set(_report "Check the issue tracker '' and consider creating a ticket if the problem has not been reported yet.")
   elseif(NOT " " STREQUAL " ")
@@ -129,7 +129,7 @@ foreach(library ${libraries})
     set(lib_path "")
     set(lib "${library}-NOTFOUND")
     # since the path where the library is found is returned we have to iterate over the paths manually
-    foreach(path /home/parallels/SAMP_XBEE_WS/devel/lib;/home/parallels/SAMP_XBEE_WS/devel/lib;/home/parallels/IntelRealSense_ws/devel/lib;/home/parallels/catkin_ws/devel/lib;/opt/ros/kinetic/lib)
+    foreach(path /home/parallels/SAMP_XBEE_WS/devel/lib;/home/parallels/Autonomy_ws/hw4/devel/lib;/home/parallels/SAMP_XBEE_WS/devel/lib;/home/parallels/IntelRealSense_ws/devel/lib;/home/parallels/catkin_ws/devel/lib;/opt/ros/kinetic/lib)
       find_library(lib ${library}
         PATHS ${path}
         NO_DEFAULT_PATH NO_CMAKE_FIND_ROOT_PATH)
@@ -152,7 +152,7 @@ foreach(library ${libraries})
   endif()
 endforeach()
 
-set(XBee_command_EXPORTED_TARGETS "")
+set(XBee_command_EXPORTED_TARGETS "XBee_command_generate_messages_cpp;XBee_command_generate_messages_eus;XBee_command_generate_messages_lisp;XBee_command_generate_messages_nodejs;XBee_command_generate_messages_py")
 # create dummy targets for exported code generation targets to make life of users easier
 foreach(t ${XBee_command_EXPORTED_TARGETS})
   if(NOT TARGET ${t})
@@ -160,7 +160,7 @@ foreach(t ${XBee_command_EXPORTED_TARGETS})
   endif()
 endforeach()
 
-set(depends "")
+set(depends "message_runtime")
 foreach(depend ${depends})
   string(REPLACE " " ";" depend_list ${depend})
   # the package name of the dependency must be kept in a unique variable so that it is not overwritten in recursive calls
@@ -189,7 +189,7 @@ foreach(depend ${depends})
   list(APPEND XBee_command_EXPORTED_TARGETS ${${XBee_command_dep}_EXPORTED_TARGETS})
 endforeach()
 
-set(pkg_cfg_extras "")
+set(pkg_cfg_extras "XBee_command-msg-extras.cmake")
 foreach(extra ${pkg_cfg_extras})
   if(NOT IS_ABSOLUTE ${extra})
     set(extra ${XBee_command_DIR}/${extra})

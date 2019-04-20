@@ -1,22 +1,22 @@
 Determining if the pthread_create exist failed with the following output:
 Change Dir: /home/parallels/SAMP_XBEE_WS/build/CMakeFiles/CMakeTmp
 
-Run Build Command:"/usr/bin/make" "cmTC_19ba8/fast"
-/usr/bin/make -f CMakeFiles/cmTC_19ba8.dir/build.make CMakeFiles/cmTC_19ba8.dir/build
+Run Build Command:"/usr/bin/make" "cmTC_8bceb/fast"
+/usr/bin/make -f CMakeFiles/cmTC_8bceb.dir/build.make CMakeFiles/cmTC_8bceb.dir/build
 make[1]: Entering directory '/home/parallels/SAMP_XBEE_WS/build/CMakeFiles/CMakeTmp'
-Building C object CMakeFiles/cmTC_19ba8.dir/CheckSymbolExists.c.o
-/usr/bin/cc     -o CMakeFiles/cmTC_19ba8.dir/CheckSymbolExists.c.o   -c /home/parallels/SAMP_XBEE_WS/build/CMakeFiles/CMakeTmp/CheckSymbolExists.c
-Linking C executable cmTC_19ba8
-/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_19ba8.dir/link.txt --verbose=1
-/usr/bin/cc       CMakeFiles/cmTC_19ba8.dir/CheckSymbolExists.c.o  -o cmTC_19ba8 -rdynamic 
-CMakeFiles/cmTC_19ba8.dir/CheckSymbolExists.c.o: In function `main':
+Building C object CMakeFiles/cmTC_8bceb.dir/CheckSymbolExists.c.o
+/usr/bin/cc     -o CMakeFiles/cmTC_8bceb.dir/CheckSymbolExists.c.o   -c /home/parallels/SAMP_XBEE_WS/build/CMakeFiles/CMakeTmp/CheckSymbolExists.c
+Linking C executable cmTC_8bceb
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_8bceb.dir/link.txt --verbose=1
+/usr/bin/cc       CMakeFiles/cmTC_8bceb.dir/CheckSymbolExists.c.o  -o cmTC_8bceb -rdynamic 
+CMakeFiles/cmTC_8bceb.dir/CheckSymbolExists.c.o: In function `main':
 CheckSymbolExists.c:(.text+0x16): undefined reference to `pthread_create'
 collect2: error: ld returned 1 exit status
-CMakeFiles/cmTC_19ba8.dir/build.make:97: recipe for target 'cmTC_19ba8' failed
-make[1]: *** [cmTC_19ba8] Error 1
+CMakeFiles/cmTC_8bceb.dir/build.make:97: recipe for target 'cmTC_8bceb' failed
+make[1]: *** [cmTC_8bceb] Error 1
 make[1]: Leaving directory '/home/parallels/SAMP_XBEE_WS/build/CMakeFiles/CMakeTmp'
-Makefile:126: recipe for target 'cmTC_19ba8/fast' failed
-make: *** [cmTC_19ba8/fast] Error 2
+Makefile:126: recipe for target 'cmTC_8bceb/fast' failed
+make: *** [cmTC_8bceb/fast] Error 2
 
 File /home/parallels/SAMP_XBEE_WS/build/CMakeFiles/CMakeTmp/CheckSymbolExists.c:
 /* */
@@ -36,20 +36,20 @@ int main(int argc, char** argv)
 Determining if the function pthread_create exists in the pthreads failed with the following output:
 Change Dir: /home/parallels/SAMP_XBEE_WS/build/CMakeFiles/CMakeTmp
 
-Run Build Command:"/usr/bin/make" "cmTC_25865/fast"
-/usr/bin/make -f CMakeFiles/cmTC_25865.dir/build.make CMakeFiles/cmTC_25865.dir/build
+Run Build Command:"/usr/bin/make" "cmTC_b3f8d/fast"
+/usr/bin/make -f CMakeFiles/cmTC_b3f8d.dir/build.make CMakeFiles/cmTC_b3f8d.dir/build
 make[1]: Entering directory '/home/parallels/SAMP_XBEE_WS/build/CMakeFiles/CMakeTmp'
-Building C object CMakeFiles/cmTC_25865.dir/CheckFunctionExists.c.o
-/usr/bin/cc    -DCHECK_FUNCTION_EXISTS=pthread_create   -o CMakeFiles/cmTC_25865.dir/CheckFunctionExists.c.o   -c /usr/share/cmake-3.5/Modules/CheckFunctionExists.c
-Linking C executable cmTC_25865
-/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_25865.dir/link.txt --verbose=1
-/usr/bin/cc   -DCHECK_FUNCTION_EXISTS=pthread_create    CMakeFiles/cmTC_25865.dir/CheckFunctionExists.c.o  -o cmTC_25865 -rdynamic -lpthreads 
+Building C object CMakeFiles/cmTC_b3f8d.dir/CheckFunctionExists.c.o
+/usr/bin/cc    -DCHECK_FUNCTION_EXISTS=pthread_create   -o CMakeFiles/cmTC_b3f8d.dir/CheckFunctionExists.c.o   -c /usr/share/cmake-3.5/Modules/CheckFunctionExists.c
+Linking C executable cmTC_b3f8d
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_b3f8d.dir/link.txt --verbose=1
+/usr/bin/cc   -DCHECK_FUNCTION_EXISTS=pthread_create    CMakeFiles/cmTC_b3f8d.dir/CheckFunctionExists.c.o  -o cmTC_b3f8d -rdynamic -lpthreads 
 /usr/bin/ld: cannot find -lpthreads
 collect2: error: ld returned 1 exit status
-CMakeFiles/cmTC_25865.dir/build.make:97: recipe for target 'cmTC_25865' failed
-make[1]: *** [cmTC_25865] Error 1
+CMakeFiles/cmTC_b3f8d.dir/build.make:97: recipe for target 'cmTC_b3f8d' failed
+make[1]: *** [cmTC_b3f8d] Error 1
 make[1]: Leaving directory '/home/parallels/SAMP_XBEE_WS/build/CMakeFiles/CMakeTmp'
-Makefile:126: recipe for target 'cmTC_25865/fast' failed
-make: *** [cmTC_25865/fast] Error 2
+Makefile:126: recipe for target 'cmTC_b3f8d/fast' failed
+make: *** [cmTC_b3f8d/fast] Error 2
 
 

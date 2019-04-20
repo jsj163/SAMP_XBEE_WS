@@ -11,6 +11,7 @@ find_package(catkin REQUIRED COMPONENTS
   roscpp
   serial
   std_msgs
+  message_generation
 )
 
 ## System dependencies are found with CMake's conventions
@@ -47,6 +48,12 @@ find_package(catkin REQUIRED COMPONENTS
 ##   * add every package in MSG_DEP_SET to generate_messages(DEPENDENCIES ...)
 
 ## Generate messages in the 'msg' folder
+
+add_message_files(
+  FILES
+  Temperature.msg
+)
+
 # add_message_files(
 #   FILES
 #   Message1.msg
@@ -68,10 +75,10 @@ find_package(catkin REQUIRED COMPONENTS
 # )
 
 ## Generate added messages and services with any dependencies listed here
-# generate_messages(
-#   DEPENDENCIES
-#   std_msgs
-# )
+generate_messages(
+  DEPENDENCIES
+  std_msgs
+)
 
 ################################################
 ## Declare ROS dynamic reconfigure parameters ##
@@ -103,10 +110,11 @@ find_package(catkin REQUIRED COMPONENTS
 ## CATKIN_DEPENDS: catkin_packages dependent projects also need
 ## DEPENDS: system dependencies of this project that dependent projects also need
 catkin_package(
-#  INCLUDE_DIRS include
-#  LIBRARIES XBee_command
-#  CATKIN_DEPENDS roscpp serial std_msgs
-#  DEPENDS system_lib
+ # INCLUDE_DIRS include
+ # LIBRARIES XBee_command
+ # CATKIN_DEPENDS roscpp serial std_msgs
+ # DEPENDS system_lib
+ CATKIN_DEPENDS message_runtime
 )
 
 ###########
@@ -199,7 +207,17 @@ include_directories(
 # catkin_add_nosetests(test)
 
 add_executable(${PROJECT_NAME}_node src/XBee_command.cpp)
+add_executable(SVD_TEST_Script_node src/SVD_TEST_Script.cpp)
+add_executable(SVD_Auto_Navi_node src/SVD_Auto_Navi.cpp)
 add_dependencies(${PROJECT_NAME}_node ${${PROJECT_NAME}_EXPORTED_TARGETS} ${catkin_EXPORTED_TARGETS})
+add_dependencies(SVD_TEST_Script_node ${${PROJECT_NAME}_EXPORTED_TARGETS} ${catkin_EXPORTED_TARGETS})
+add_dependencies(SVD_Auto_Navi_node ${${PROJECT_NAME}_EXPORTED_TARGETS} ${catkin_EXPORTED_TARGETS} XBee_command_gerate_messages_cpp)
 target_link_libraries(${PROJECT_NAME}_node
+   ${catkin_LIBRARIES}
+ )
+target_link_libraries(SVD_TEST_Script_node
+   ${catkin_LIBRARIES}
+ )
+target_link_libraries(SVD_Auto_Navi_node
    ${catkin_LIBRARIES}
  )
