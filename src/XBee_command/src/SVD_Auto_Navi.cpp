@@ -19,7 +19,7 @@ void gps_callback(const sensor_msgs::NavSatFix::ConstPtr& msg) {
       if(!gps_converg_flag){
             double newlatitude = msg->latitude*pow(10,7);
             double newlongitude = msg->longitude*pow(10,7);
-            
+            ROS_INFO("I am in GPS gps_callback");
             lat_buff.push_back(newlatitude);
             long_buff.push_back(newlongitude);
             
@@ -39,7 +39,7 @@ void gps_callback(const sensor_msgs::NavSatFix::ConstPtr& msg) {
 
                   if(dist_flag){                //GPS converge, start temperature sampling
                         ROS_INFO("GPS converge, start temperature sampling.\n");
-                        std::cout<<"Converged latitude: "<<msg->latitude<<" Converged longitude: "<<msg->longitude<<std::endl;
+                        std::cout<<"Converged latitude: "<<std::setprecision(9) <<msg->latitude<<" Converged longitude: "<<msg->longitude<<std::endl;
                         gps_converg_flag = true;
                   }
             }
@@ -85,21 +85,24 @@ int main (int argc, char** argv)
 
       ros::NodeHandle nh; 
 
-      ros::Subscriber tmp_sub = nh.subscribe("temp", 1, tmp_callback); 
+      ros::Subscriber tmp_sub = nh.subscribe("uav/temp", 1, tmp_callback); 
       ros::Subscriber gps_sub = nh.subscribe("fcu/gps", 1, gps_callback); 
 
 
-      ros::Publisher cmd_pub = nh.advertise<std_msgs::String>("wp_cmd", 1000); 
+      ros::Publisher cmd_pub = nh.advertise<std_msgs::String>("wp_cmd", 1); 
 
       ros::Rate loop_rate(10);
+      std::string wp_command;
+      std_msgs::String ros_wp_cmd;
 
 
       while(ros::ok()) 
       { 
-            if(gps_converg_flag && tmp_converg_flag && waypointNumber<=1){   
-                  std::string wp_command = "waypoint";
-                  wp_command.push_back('0'+(waypointNumber++));
-                  std_msgs::String ros_wp_cmd;
+            if(gps_converg_flag && tmp_converg_flag && waypointNumber<=1){
+                  ros::Duration(5).sleep();   
+                  wp_command = "waypoint1";
+                  waypointNumber++; 
+                  // wp_command.push_back('0'+(waypointNumber++));
                   ros_wp_cmd.data = wp_command;
                   cmd_pub.publish(ros_wp_cmd);
                   // printf("%s\n",wp_command );
@@ -111,8 +114,11 @@ int main (int argc, char** argv)
                   lat_buff.clear();
                   long_buff.clear();
                   tmp_buff.clear();
-                  ros::Duration(2).sleep();
+                  ros::Duration(20).sleep();
 
+            }
+
+            else if(gps_converg_flag && tmp_converg_flag && waypointNumber==2){
                   wp_command = "go_home";
                   ros_wp_cmd.data = wp_command;
                   cmd_pub.publish(ros_wp_cmd);
@@ -121,6 +127,9 @@ int main (int argc, char** argv)
                   wp_command = "land";
                   ros_wp_cmd.data = wp_command;
                   cmd_pub.publish(ros_wp_cmd);
+                  ros::Duration(30).sleep();
+                  waypointNumber++; 
+
             }
             ros::spinOnce(); 
             loop_rate.sleep(); 

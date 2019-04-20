@@ -112,14 +112,16 @@ int main (int argc, char** argv)
                   std_msgs::String command;
                   command.data = "launch_waypoint";
                   read_pub.publish(command);
-                  ros::Duration(2).sleep();     //Delay 2 Sec.
+                  ros::Duration(5).sleep();     //Delay 2 Sec.
                   command.data = cmd_to_publish;
                   read_pub.publish(command);
+                  cmd_flag = 0;
             }
             else if(cmd_flag == 2){
                   std_msgs::String command;
                   command.data = cmd_to_publish;
                   read_pub.publish(command);
+                  cmd_flag = 0; 
             }
       } 
 } 
