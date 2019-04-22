@@ -7,10 +7,10 @@
 #include <math.h>
 
 int waypointNumber = 1;
-int test_wp_num = 1;
+int test_wp_num = 4;
 bool tmp_converg_flag = true;      //flag to detect the converge of temperature sensor
 bool gps_converg_flag = true;      //flag to detect the converge of GPS sensor
-bool home_flag = false;
+bool home_flag = true;
 std::vector<double> lat_buff;
 std::vector<double> long_buff;
 std::vector<double> tmp_buff;
@@ -91,7 +91,9 @@ int main (int argc, char** argv)
       ros::Subscriber gps_sub = nh.subscribe("fcu/gps", 1, gps_callback); 
 
 
-      ros::Publisher cmd_pub = nh.advertise<std_msgs::String>("wp_cmd", 1); 
+      // ros::Publisher cmd_pub = nh.advertise<std_msgs::String>("wp_cmd", 1); 
+      ros::Publisher cmd_pub = nh.advertise<std_msgs::String>("write", 1); 
+
 
       ros::Rate loop_rate(10);
       std::string wp_command;
@@ -102,7 +104,19 @@ int main (int argc, char** argv)
       { 
             if(gps_converg_flag && tmp_converg_flag && waypointNumber<=test_wp_num && home_flag){
                   ros::Duration(5).sleep();   
-                  wp_command = "waypoint1";
+                  if(waypointNumber == 1)
+                        wp_command = "launch_waypoint";
+                  // wp_command = "waypoint1";
+                  else
+                  {
+                        wp_command = "waypoint_height_auto,0,-5000,3000";
+                        gps_converg_flag = false;
+                        tmp_converg_flag = false;
+                        lat_buff.clear();
+                        long_buff.clear();
+                        tmp_buff.clear();
+                  }
+
                   // waypointNumber++; 
                   // wp_command.push_back('0'+(waypointNumber++));
                   ros_wp_cmd.data = wp_command;
@@ -111,12 +125,8 @@ int main (int argc, char** argv)
                   std::cout<<wp_command<<std::endl;
 
                   // ROS_INFO("Going to %s \n",wp_command);
-                  gps_converg_flag = false;
-                  tmp_converg_flag = false;
-                  lat_buff.clear();
-                  long_buff.clear();
-                  tmp_buff.clear();
-                  ros::Duration(20).sleep();
+                  
+                  ros::Duration(10).sleep();
                   waypointNumber++;
                   home_flag = false;
 
@@ -124,23 +134,23 @@ int main (int argc, char** argv)
 
             else if(gps_converg_flag && tmp_converg_flag && waypointNumber <= test_wp_num && !home_flag){
                   ros::Duration(5).sleep();   
-                  wp_command = "go_home";
+                  wp_command = "home_waypoint";
                   ros_wp_cmd.data = wp_command;
                   cmd_pub.publish(ros_wp_cmd);
-                  ros::Duration(20).sleep();
+                  std::cout<<wp_command<<std::endl;
+                  ros::Duration(10).sleep();
                   home_flag = true;
                   // waypointNumber++;
             }
 
             else if(gps_converg_flag && tmp_converg_flag && waypointNumber == test_wp_num+1){
-                  wp_command = "land";
+                  wp_command = "land_waypoint";
                   ros_wp_cmd.data = wp_command;
                   cmd_pub.publish(ros_wp_cmd);
-
+                  std::cout<<wp_command<<std::endl;
                   tmp_buff.clear();
                   tmp_converg_flag = false;
-                  
-                  ros::Duration(20).sleep();
+                  ros::Duration(10).sleep();
                   waypointNumber++; 
                   ROS_INFO("Finished Task!");
             }

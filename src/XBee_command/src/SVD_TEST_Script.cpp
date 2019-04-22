@@ -39,19 +39,19 @@ void write_callback(const std_msgs::String::ConstPtr& msg) {
             switch(check_command){
                   case waypoint1:{
                         ROS_INFO("going to waypoint 1\n");
-                        cmd_to_publish = "waypoint_auto,0,-5000,-1000";      //GPS LAT & LON & HEIGHT OF WP1
+                        cmd_to_publish = "waypoint_auto,0,-5000,3000";      //GPS LAT & LON & HEIGHT OF WP1
                         cmd_flag = 1;
                         break;
                   }
                   case waypoint2:{
                         ROS_INFO("going to waypoint 2\n");
-                        cmd_to_publish = "waypoint_auto,404433303,-799428605,2000";      //GPS LAT & LON & HEIGHT OF WP1
+                        cmd_to_publish = "waypoint_auto,0,-4000,3000";      //GPS LAT & LON & HEIGHT OF WP1
                         cmd_flag = 1;
                         break;
                   }
                   case waypoint3:{
                         ROS_INFO("going to waypoint 3\n");
-                        cmd_to_publish = "waypoint_auto,404434300,-799429400,2000";      //GPS LAT & LON & HEIGHT OF WP1
+                        cmd_to_publish = "waypoint_auto,0,-4000,2000";      //GPS LAT & LON & HEIGHT OF WP1
                         cmd_flag = 1;
                         break;
                   }
