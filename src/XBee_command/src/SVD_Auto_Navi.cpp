@@ -62,7 +62,7 @@ void tmp_callback(const XBee_command::Temperature::ConstPtr& msg) {
                   double tmp_err = 0;
                   for(int i = 0; i < tmp_buff.size()-1;++i){
                         tmp_err = tmp_buff[i+1]-tmp_buff[i];
-                        if(tmp_err>0.2)       //Threshold = 0.2 degree
+                        if(tmp_err>0.1)       //Threshold = 0.2 degree
                         {
                               tmp_err_flag = false;
                               break;
@@ -136,7 +136,10 @@ int main (int argc, char** argv)
                   wp_command = "land";
                   ros_wp_cmd.data = wp_command;
                   cmd_pub.publish(ros_wp_cmd);
+
+                  tmp_buff.clear();
                   tmp_converg_flag = false;
+                  
                   ros::Duration(20).sleep();
                   waypointNumber++; 
                   ROS_INFO("Finished Task!");

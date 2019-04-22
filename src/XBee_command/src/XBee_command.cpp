@@ -152,25 +152,30 @@ void write_callback(const std_msgs::String::ConstPtr& msg) {
                         wp.cmd.max_speed = 100;
                         wp.cmd.time = 1000;
                         wp.cmd.pos_acc = 1000;
+
                         std::stringstream tmp_ss(command_list[1]);
                         int32_t wp_x;
                         tmp_ss>>wp_x;
                         tmp_ss.str("");
                         tmp_ss.clear();
                         wp.cmd.X = wp_x;
+
                         tmp_ss.str(command_list[2]);
                         int32_t wp_y;
                         tmp_ss>>wp_y;
                         tmp_ss.str("");
                         tmp_ss.clear();
                         wp.cmd.Y = wp_y;
+
                         wp.cmd.yaw = 0;
+
                         tmp_ss.str(command_list[3]);
                         int32_t wp_h;
                         tmp_ss>>wp_h;
                         wp.cmd.height = wp_h;
                         tmp_ss.str("");
                         tmp_ss.clear();
+                        
                         wp.cmd.chksum = 0xAAAA + wp.cmd.yaw + wp.cmd.height + wp.cmd.time + wp.cmd.X + wp.cmd.Y + wp.cmd.max_speed + wp.cmd.pos_acc + wp.cmd.properties + wp.cmd.wp_number;
                         ser.write((const uint8_t *)&wp, sizeof(WAYPOINT_CMD));
                         ROS_INFO_STREAM("latitude: " << wp_x);
