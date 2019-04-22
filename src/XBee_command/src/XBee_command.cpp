@@ -151,7 +151,7 @@ void write_callback(const std_msgs::String::ConstPtr& msg) {
                         wp.cmd.properties = WPPROP_AUTOMATICGOTO;
                         wp.cmd.max_speed = 100;
                         wp.cmd.time = 1000;
-                        wp.cmd.pos_acc = 1500;
+                        wp.cmd.pos_acc = 1000;
                         std::stringstream tmp_ss(command_list[1]);
                         int32_t wp_x;
                         tmp_ss>>wp_x;
@@ -173,6 +173,10 @@ void write_callback(const std_msgs::String::ConstPtr& msg) {
                         tmp_ss.clear();
                         wp.cmd.chksum = 0xAAAA + wp.cmd.yaw + wp.cmd.height + wp.cmd.time + wp.cmd.X + wp.cmd.Y + wp.cmd.max_speed + wp.cmd.pos_acc + wp.cmd.properties + wp.cmd.wp_number;
                         ser.write((const uint8_t *)&wp, sizeof(WAYPOINT_CMD));
+                        ROS_INFO_STREAM("latitude: " << wp_x);
+                        ROS_INFO_STREAM("longitude: " << wp_y);
+                        ROS_INFO_STREAM("height: " << wp_h);
+
                         break;
                               
                   }
@@ -282,6 +286,9 @@ int main (int argc, char** argv)
                                 ROS_INFO_STREAM("angle_roll: " << pCalcData->angle_roll);
                                 ROS_INFO_STREAM("angle_yaw: " << pCalcData->angle_yaw);
                                 ROS_INFO_STREAM("height: " << pCalcData->height);
+                                ROS_INFO_STREAM("height_reference: " << pCalcData->height_reference);
+
+                                
                                 break;
                               }
 
