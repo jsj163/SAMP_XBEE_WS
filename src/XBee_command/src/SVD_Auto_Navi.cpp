@@ -40,7 +40,7 @@ void gps_callback(const sensor_msgs::NavSatFix::ConstPtr& msg) {
                   }
 
                   if(dist_flag){                //GPS converge, start temperature sampling
-                        ROS_INFO("GPS converge, start temperature sampling.");
+                        ROS_INFO("GPS converge.");
                         ROS_INFO_STREAM("Converged latitude: " <<std::setprecision(9)<< msg->latitude <<" Converged longitude: "<<msg->longitude<<"\n");
                         gps_converg_flag = true;
                   }
@@ -109,7 +109,7 @@ int main (int argc, char** argv)
                   // wp_command = "waypoint1";
                   else
                   {
-                        wp_command = "waypoint_height_auto,0,-5000,3000";
+                        wp_command = "waypoint_height_auto,0,-5000,3500";
                         gps_converg_flag = false;
                         tmp_converg_flag = false;
                         lat_buff.clear();
@@ -135,7 +135,7 @@ int main (int argc, char** argv)
             else if(gps_converg_flag && tmp_converg_flag && waypointNumber <= test_wp_num && !home_flag){
                   ros::Duration(5).sleep();   
 
-                  wp_command = "waypoint_height_auto,0,0,5000";
+                  wp_command = "waypoint_height_auto,0,0,4000";
                   ros_wp_cmd.data = wp_command;
                   cmd_pub.publish(ros_wp_cmd);
                   std::cout<<wp_command<<std::endl;
@@ -152,11 +152,11 @@ int main (int argc, char** argv)
 
             else if(gps_converg_flag && tmp_converg_flag && waypointNumber == test_wp_num+1){
 
-                  wp_command = "waypoint_height_auto,0,0,2000";
-                  ros_wp_cmd.data = wp_command;
-                  cmd_pub.publish(ros_wp_cmd);
-                  std::cout<<wp_command<<std::endl;
-                  ros::Duration(5).sleep();
+                  // wp_command = "waypoint_height_auto,0,0,2500";
+                  // ros_wp_cmd.data = wp_command;
+                  // cmd_pub.publish(ros_wp_cmd);
+                  // std::cout<<wp_command<<std::endl;
+                  // ros::Duration(5).sleep();
 
 
                   wp_command = "land_waypoint";
